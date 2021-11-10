@@ -1,38 +1,123 @@
 .App {
-  text-align: center;
+  /* background-color: rgba(169, 188, 206, 0.342); */
+  background-color: lavender;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* .head {
+  position: relative;
+} */
+
+.navstyle {
+  text-decoration: none;
+  color: khaki;
+  font-size: medium;
+  padding: 5px 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navstyle:hover {
+  background-color: rgba(245, 222, 179, 0.253);
+  color: white;
+  border-radius: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  background-color: palevioletred;
+  padding: 20px 20px;
+
+  color: khaki;
+  position: fixed;
+  width: 100%;
+}
+
+.top-space {
+  padding-top: 70px;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+  background-color: rgba(216, 112, 147, 0.287);
+  padding-top: 80px;
+  padding: 0 100px;
+}
+
+.banner img {
+  width: 90%;
+}
+
+.banner-title {
+  color: green;
+  font-size: 50px;
+}
+
+.banner-text {
+  padding: 50px;
+  color: goldenrod;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.dash-side {
+  background-color: aquamarine;
+  padding-top: 50px;
+}
+
+.dash-big {
+  background-color: rgba(216, 112, 147, 0.246);
+  padding-bottom: 100px;
+}
+
+.t-order {
+  width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: rgba(216, 112, 147, 0.24);
+}
+
+/* input {
+  width: 500px;
+  height: 25px;
+} */
+
+.form-style {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.form-style input {
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cont {
+  margin: 10px 30px;
+  padding: 20px;
+
+  border-radius: 5px;
+  background-color: honeydew;
+}
+.prd-cont {
+  padding: 20px;
+
+  border-radius: 5px;
+  background-color: honeydew;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+.single {
+  background-color: rgba(255, 182, 193, 0.322);
+  padding: 10px;
+  box-shadow: rgba(128, 128, 128, 0.452) 10px 10px 5px;
+  border-radius: 10px;
 }
