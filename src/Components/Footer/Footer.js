@@ -6,16 +6,16 @@ const Footer = () => {
       style={{
         textAlign: "center",
         marginTop: "100px",
-        backgroundColor: "black",
+        backgroundColor: "rgba(0, 0, 0, 0.404)",
         padding: "30px",
         color: "gold",
       }}
     >
       <p>
-        All types of condition & copyrights© reserved by Seven Heaven Tours
+        All types of condition & copyrights© reserved by U For Umbrella
         authourity. <br />
         contact us: <br />
-        Email:hospitalauthority@hp.com <br /> Phone: 0123456789
+        Email:uforumbrella@um.com <br /> Phone: 0123456789
       </p>
     </div>
   );
