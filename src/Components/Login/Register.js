@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 
 import icon from "../../images/google.ico";
 import useFirebase from "../../Firebase/useFirebase";
@@ -18,20 +18,23 @@ const Register = () => {
   const [name, setName] = useState("");
 
   const googleLogin = () => {
-    signWithGoogle().then((result) => {
-      history.push(redirect_uri);
-    });
+    signWithGoogle()
+      .then((result) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => {
+        alert("Something went wrong..!");
+      });
   };
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passRef = useRef();
 
-  const handleName = (e) => {
-    setName(e.target.value);
+  const handleInput = (e) => {
+    setEmail(emailRef.current.value);
+    setPassword(passRef.current.value);
+    setName(nameRef.current.value);
   };
 
   const updateName = () => {
@@ -47,7 +50,12 @@ const Register = () => {
         window.location.reload();
         console.log("register successful");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        alert("Something went wrong..!");
+        emailRef.current.value = "";
+        passRef.current.value = "";
+        nameRef.current.value = "";
+      });
 
     console.log("button clicked", email, password);
   };
@@ -59,11 +67,13 @@ const Register = () => {
           <h5 className="text-start">
             Create an account with Email & password
           </h5>
+
           <Form onSubmit={register} className="form-style   mx-auto">
             <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>User Name</Form.Label>
               <Form.Control
-                onBlur={handleName}
+                onBlur={handleInput}
+                ref={nameRef}
                 type="text"
                 placeholder="Enter user name"
               />
@@ -71,8 +81,9 @@ const Register = () => {
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                onBlur={handleEmail}
+                onBlur={handleInput}
                 type="email"
+                ref={emailRef}
                 placeholder="Enter email"
               />
             </Form.Group>
@@ -80,8 +91,9 @@ const Register = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                onBlur={handlePassword}
+                onBlur={handleInput}
                 type="password"
+                ref={passRef}
                 placeholder="Password"
               />
             </Form.Group>

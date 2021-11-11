@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import icon from "../../images/google.ico";
-import { Button, Form } from "react-bootstrap";
+import { Alert, Button, Form } from "react-bootstrap";
 import useFirebase from "../../Firebase/useFirebase";
 
 const Login = () => {
@@ -13,28 +13,39 @@ const Login = () => {
   const location = useLocation();
   const redirect_uri = location.state?.from || "/home";
 
+  const emailRef = useRef();
+  const passRef = useRef();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
+  const handleInput = () => {
+    setEmail(emailRef.current.value);
+    setPassword(passRef.current.value);
   };
 
   const login = (e) => {
     e.preventDefault();
-    loginWithEmail(email, password).then((userCredential) => {
-      history.push(redirect_uri);
-    });
+
+    loginWithEmail(email, password)
+      .then((userCredential) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => {
+        emailRef.current.value = "";
+        passRef.current.value = "";
+        alert("Something went wrong..!");
+      });
   };
 
   const googleLogin = () => {
-    signWithGoogle().then((result) => {
-      history.push(redirect_uri);
-    });
-    console.log("login successful");
+    signWithGoogle()
+      .then((result) => {
+        history.push(redirect_uri);
+      })
+      .catch((error) => {
+        alert("Something went wrong..!");
+      });
   };
 
   return (
@@ -42,12 +53,14 @@ const Login = () => {
       <div className="t-order">
         <div>
           <h5>Login your account with email & password</h5>
+
           <Form onSubmit={login} className="form-style   mx-auto">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
-                onBlur={handleEmail}
+                onBlur={handleInput}
                 type="email"
+                ref={emailRef}
                 placeholder="Enter email"
               />
             </Form.Group>
@@ -55,8 +68,9 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
-                onBlur={handlePassword}
+                onBlur={handleInput}
                 type="password"
+                ref={passRef}
                 placeholder="Password"
               />
             </Form.Group>
@@ -67,6 +81,7 @@ const Login = () => {
                 label="I accept all terms & conditions"
               />
             </Form.Group>
+
             <div className="d-flex justify-content-between">
               <Button variant="primary" type="submit">
                 Submit
