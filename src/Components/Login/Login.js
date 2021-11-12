@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import icon from "../../images/google.ico";
-import { Alert, Button, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import useFirebase from "../../Firebase/useFirebase";
 
 const Login = () => {
@@ -24,11 +24,24 @@ const Login = () => {
     setPassword(passRef.current.value);
   };
 
+  function saveUser(name, email) {
+    const userData = { displayName: name, email: email };
+
+    fetch("https://backend-umbrella-asif.herokuapp.com/users", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userData),
+    });
+  }
+
   const login = (e) => {
     e.preventDefault();
 
     loginWithEmail(email, password)
       .then((userCredential) => {
+        const user = userCredential.user;
+        const { displayName, email } = user;
+        saveUser(displayName, email);
         history.push(redirect_uri);
       })
       .catch((error) => {
@@ -41,6 +54,9 @@ const Login = () => {
   const googleLogin = () => {
     signWithGoogle()
       .then((result) => {
+        const user = result.user;
+        const { displayName, email } = user;
+        saveUser(displayName, email);
         history.push(redirect_uri);
       })
       .catch((error) => {

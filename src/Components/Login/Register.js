@@ -2,13 +2,14 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert, Button, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import icon from "../../images/google.ico";
 import useFirebase from "../../Firebase/useFirebase";
 
 const Register = () => {
-  const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
+  const { signWithGoogle, registerWithEmail, updateUserName, addNewUser } =
+    useFirebase();
 
   const history = useHistory();
   const location = useLocation();
@@ -17,9 +18,22 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  function saveUser(name, email) {
+    const userData = { displayName: name, email: email };
+
+    fetch("https://backend-umbrella-asif.herokuapp.com/users", {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(userData),
+    });
+  }
+
   const googleLogin = () => {
     signWithGoogle()
       .then((result) => {
+        const user = result.user;
+        const { displayName, email } = user;
+        saveUser(displayName, email);
         history.push(redirect_uri);
       })
       .catch((error) => {
@@ -41,23 +55,33 @@ const Register = () => {
     updateUserName(name);
   };
 
+  // function saveUser() {
+  //   const userData = { displayName: name, email: email };
+
+  //   fetch("http://backend-umbrella-asif.herokuapp.com/users", {
+  //     method: "POST",
+  //     headers: { "content-type": "application/json" },
+  //     body: JSON.stringify(userData),
+  //   });
+  // }
+
   const register = (e) => {
     e.preventDefault();
+    saveUser(name, email);
     registerWithEmail(email, password)
-      .then(() => {
+      .then((userCredential) => {
         updateName();
+
         history.push("/home");
         window.location.reload();
-        console.log("register successful");
       })
       .catch((error) => {
+        console.log(error);
         alert("Something went wrong..!");
         emailRef.current.value = "";
         passRef.current.value = "";
         nameRef.current.value = "";
       });
-
-    console.log("button clicked", email, password);
   };
 
   return (

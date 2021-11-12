@@ -66,6 +66,13 @@
   padding-top: 50px;
 }
 
+.dash-side li {
+  list-style: none;
+
+  /* background-color: blanchedalmond; */
+  margin: 20px;
+}
+
 .dash-big {
   background-color: rgba(216, 112, 147, 0.246);
   padding-bottom: 100px;

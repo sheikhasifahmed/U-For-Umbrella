@@ -11,6 +11,7 @@ import useFirebase from "../../Firebase/useFirebase";
 import AddProduct from "./AddProduct";
 import MakeAdmin from "./MakeAdmin";
 import DashMain from "./DashMain";
+import ManageUsers from "./ManageUsers";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -27,6 +28,9 @@ const Dashboard = () => {
             </li>
             <li>
               <Link to={`${url}/make-admin`}>Make Admin</Link>
+            </li>
+            <li>
+              <Link to={`${url}/manage-users`}>Manage Users</Link>
             </li>
             <li>
               <Link to={`${url}/my-orders`}>My Orders</Link>
@@ -60,6 +64,9 @@ const Dashboard = () => {
             </Route>
             <Route path={`${path}/make-admin`}>
               <MakeAdmin></MakeAdmin>
+            </Route>
+            <Route path={`${path}/manage-users`}>
+              <ManageUsers></ManageUsers>
             </Route>
             <Route path={`${path}/add-product`}>
               <AddProduct></AddProduct>
