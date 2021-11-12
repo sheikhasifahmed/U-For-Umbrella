@@ -32,7 +32,7 @@ const Purchase = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(orderData),
     }).then(() => {
-      alert("Congrates! You have successfully booked your tour package");
+      alert("Congrates! your order is successful..");
       history.push("/");
     });
   };

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Product from "../Products/Product";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Prd = () => {
   const [data, setData] = useState([]);
@@ -29,6 +31,11 @@ const Prd = () => {
             {data.map((p) => (
               <Product product={p}></Product>
             ))}
+          </div>
+          <div className="d-flex justify-content-end mt-5">
+            <Link to="/products">
+              <h5>Explore All...</h5>
+            </Link>
           </div>
         </div>
       ) : (

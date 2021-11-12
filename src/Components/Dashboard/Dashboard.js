@@ -13,6 +13,7 @@ import AddProduct from "./AddProduct";
 import DashMain from "./DashMain";
 import MakeAdmin from "./MakeAdmin";
 import AdminRoute from "../PrivateRoute/AdminRoute";
+import ManageProducts from "./ManageProducts";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -37,6 +38,9 @@ const Dashboard = () => {
           {admin ? (
             <ul>
               <li>
+                <Link to={`${url}/manage-products`}>Manage Products</Link>
+              </li>
+              <li>
                 <Link to={`${url}/manage-orders`}>Manage Orders</Link>
               </li>
               <li>
@@ -51,11 +55,12 @@ const Dashboard = () => {
               <li>
                 <Link to={`${url}/my-orders`}>My Orders</Link>
               </li>
-              <li>
-                <Link to={`${url}/review`}>Review Us</Link>
-              </li>
+
               <li>
                 <Link to={`${url}/payment`}>Payment</Link>
+              </li>
+              <li>
+                <Link to={`${url}/review`}>Review Us</Link>
               </li>
             </ul>
           )}
@@ -76,6 +81,9 @@ const Dashboard = () => {
             <Route exact path={`${path}`}>
               <DashMain></DashMain>
             </Route>
+            <AdminRoute path={`${path}/manage-products`}>
+              <ManageProducts></ManageProducts>
+            </AdminRoute>
             <AdminRoute path={`${path}/manage-orders`}>
               <ManageOrders></ManageOrders>
             </AdminRoute>

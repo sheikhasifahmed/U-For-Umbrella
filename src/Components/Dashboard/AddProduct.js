@@ -44,7 +44,7 @@ const AddProduct = () => {
 
           <div className="mx-auto">
             <Button type="submit" variant="outline-success">
-              Add Package
+              Add Product
             </Button>
           </div>
         </form>
