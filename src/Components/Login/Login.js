@@ -66,7 +66,7 @@ const Login = () => {
 
   return (
     <div className="top-space ">
-      <div className="t-order">
+      <div className="t-order" style={{ marginTop: "50px" }}>
         <div>
           <h5>Login your account with email & password</h5>
 

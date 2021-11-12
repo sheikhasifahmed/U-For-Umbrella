@@ -89,6 +89,7 @@
   margin: 0 auto;
   padding: 30px;
   background-color: rgba(216, 112, 147, 0.24);
+  border-radius: 8px;
 }
 
 /* input {

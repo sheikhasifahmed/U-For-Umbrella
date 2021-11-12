@@ -35,6 +35,11 @@ const Dashboard = () => {
     <div className="top-space">
       <div className="dash-grid">
         <div className="dash-side">
+          <ul>
+            <li>
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          </ul>
           {admin ? (
             <ul>
               <li>

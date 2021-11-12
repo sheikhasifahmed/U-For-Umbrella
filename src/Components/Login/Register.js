@@ -55,16 +55,6 @@ const Register = () => {
     updateUserName(name);
   };
 
-  // function saveUser() {
-  //   const userData = { displayName: name, email: email };
-
-  //   fetch("http://backend-umbrella-asif.herokuapp.com/users", {
-  //     method: "POST",
-  //     headers: { "content-type": "application/json" },
-  //     body: JSON.stringify(userData),
-  //   });
-  // }
-
   const register = (e) => {
     e.preventDefault();
     saveUser(name, email);
@@ -86,7 +76,7 @@ const Register = () => {
 
   return (
     <div className="top-space">
-      <div className="t-order mx-auto ">
+      <div className="t-order" style={{ marginTop: "50px" }}>
         <div>
           <h5 className="text-start">
             Create an account with Email & password
