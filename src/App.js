@@ -43,6 +43,9 @@ function App() {
           <Route path="/purchase">
             <Purchase></Purchase>
           </Route>
+          <Route path="/404">
+            <NotFound></NotFound>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
