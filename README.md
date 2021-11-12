@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Seven Heaven Tours
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live link of this site: https://u-for-umbrella.web.app/
 
-## Available Scripts
+## 1.About the Project
 
-In the project directory, you can run:
+This project is a demo online shop of umbrella. People can find and order their prefered umbrella.
 
-### `npm start`
+### Routing and Private Routing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users can route to any path available if they logged in. But, if they are not they can find or go to few limited route. Rest of the route is secured by private routing.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Admin Routing
 
-### `npm test`
+This is a special type of private routing. Only admin users are permitted to visit those routes. This creates a space from where admins of the sites can control the client data and access.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2.User Authentication System
 
-### `npm run build`
+This Project has a user authentication system which allows the users to login in two ways. This Authentication system has been developed with Firebase.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Login With Google
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Users can direcly login with their Google account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Login with Email & Password
 
-### `npm run eject`
+or by email and password. If an user has not created account, he can also create his account.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 3.Database Management
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+All the data used here is well organised and managed through Mongodb database mangaement system. All the actions perform with data, directly manupulate and implement to mongodb.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Make Admin
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Only an admin user can promote another user to admin. Then the new admin user will be able to visit admin routes as like as the other admin users.
 
-## Learn More
+### Add new product
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+on this page admin can add a new product. on a successful action a new package will be added on the document.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Orders and Manage orders
 
-### Code Splitting
+Whenever an user confirm a order, a new order is added to the database
+Admin users can manage the ordesr by shipping and cancel button. which will rewrite the database according to the action.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 4.Back-end developement
 
-### Analyzing the Bundle Size
+Back end devolopement is performed by node js. A server site has been devoloped to give realtime data to the client server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Server site
 
-### Making a Progressive Web App
+Server site has been hosted by heroku.
+Here is the link of the server site https://backend-umbrella-asif.herokuapp.com/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 5. Front-end developement
 
-### Advanced Configuration
+### React js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The main development is done with react js which is a library of javascript.
+Several development tools is used including react router, react hook, react hook form. A private Route was setup for authentication purpose.
 
-### Deployment
+### Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+All the design is done by both bootstrap and vanila CSS.
 
-### `npm run build` fails to minify
+### Hosting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This fornt end client site has been hosted by firebase. The live site link has been given before.

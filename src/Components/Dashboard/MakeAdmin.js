@@ -45,7 +45,6 @@ const MakeAdmin = () => {
 
   return (
     <div>
-      <h3>Here is all users..</h3>
       <div
         className="t-order w-100 table-responsive"
         style={{ marginBottom: "150px" }}
