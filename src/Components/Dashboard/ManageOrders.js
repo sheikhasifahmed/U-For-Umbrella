@@ -10,7 +10,7 @@ const ManageOrders = () => {
   }, []);
 
   const handleDelete = (id) => {
-    let proceed = window.confirm("Are you sure?");
+    let proceed = window.confirm("Are you sure to cancel this order?");
     if (!proceed) return;
     fetch(`https://backend-umbrella-asif.herokuapp.com/orders/${id}`, {
       method: "DELETE",
@@ -19,7 +19,7 @@ const ManageOrders = () => {
         const remainig = orders.filter((order) => order._id !== id);
         setOrders(remainig);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert("Ops! something went wrong!"));
   };
 
   const handleShipped = (id) => {
@@ -34,10 +34,13 @@ const ManageOrders = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) alert("order Shipped by Admin");
-        const remaining = orders.filter((p) => p._id !== id);
-        const neworders = [...remaining, Shipped];
-        setOrders(neworders);
+        if (data.modifiedCount > 0) {
+          alert("order Shipped by Admin");
+          // window.location.reload()
+          const remaining = orders.filter((p) => p._id !== id);
+          const neworders = [...remaining, Shipped];
+          setOrders(neworders);
+        }
       })
       .catch((error) => console.log(error));
   };

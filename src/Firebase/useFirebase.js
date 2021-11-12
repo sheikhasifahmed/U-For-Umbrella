@@ -17,6 +17,7 @@ initializeAuthentication();
 function useFirebase() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isAdminLoading, setIsAdminLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -59,6 +60,19 @@ function useFirebase() {
     });
   }, []);
 
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    if (user.email) {
+      fetch(`https://backend-umbrella-asif.herokuapp.com/users/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data[0]?.role === "Admin") setAdmin(true);
+          setIsAdminLoading(false);
+        });
+    }
+  }, [user.email]);
+
   return {
     user,
     signWithGoogle,
@@ -67,6 +81,8 @@ function useFirebase() {
     updateUserName,
     logOut,
     isLoading,
+    admin,
+    isAdminLoading,
   };
 }
 

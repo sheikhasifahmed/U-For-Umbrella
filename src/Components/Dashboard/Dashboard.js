@@ -9,41 +9,58 @@ import Review from "./Review";
 import Payment from "./Payment";
 import useFirebase from "../../Firebase/useFirebase";
 import AddProduct from "./AddProduct";
-import MakeAdmin from "./MakeAdmin";
+
 import DashMain from "./DashMain";
-import ManageUsers from "./ManageUsers";
+import MakeAdmin from "./MakeAdmin";
+import AdminRoute from "../PrivateRoute/AdminRoute";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
 
-  const { logOut } = useFirebase();
+  const { logOut, admin, isAdminLoading } = useFirebase();
+
+  if (isAdminLoading) {
+    return (
+      <div className="loader">
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+        <h3>Please Wait...</h3>
+      </div>
+    );
+  }
 
   return (
     <div className="top-space">
       <div className="dash-grid">
         <div className="dash-side">
+          {admin ? (
+            <ul>
+              <li>
+                <Link to={`${url}/manage-orders`}>Manage Orders</Link>
+              </li>
+              <li>
+                <Link to={`${url}/make-admin`}>Make Admin</Link>
+              </li>
+              <li>
+                <Link to={`${url}/add-product`}>Add New Product</Link>
+              </li>
+            </ul>
+          ) : (
+            <ul>
+              <li>
+                <Link to={`${url}/my-orders`}>My Orders</Link>
+              </li>
+              <li>
+                <Link to={`${url}/review`}>Review Us</Link>
+              </li>
+              <li>
+                <Link to={`${url}/payment`}>Payment</Link>
+              </li>
+            </ul>
+          )}
+
           <ul>
-            <li>
-              <Link to={`${url}/manage-orders`}>Manage Orders</Link>
-            </li>
-            <li>
-              <Link to={`${url}/make-admin`}>Make Admin</Link>
-            </li>
-            <li>
-              <Link to={`${url}/manage-users`}>Manage Users</Link>
-            </li>
-            <li>
-              <Link to={`${url}/my-orders`}>My Orders</Link>
-            </li>
-            <li>
-              <Link to={`${url}/review`}>Review Us</Link>
-            </li>
-            <li>
-              <Link to={`${url}/payment`}>Payment</Link>
-            </li>
-            <li>
-              <Link to={`${url}/add-product`}>Add New Product</Link>
-            </li>
             <li>
               <Button variant="outline-danger" onClick={logOut}>
                 Log Out
@@ -59,18 +76,16 @@ const Dashboard = () => {
             <Route exact path={`${path}`}>
               <DashMain></DashMain>
             </Route>
-            <Route path={`${path}/manage-orders`}>
+            <AdminRoute path={`${path}/manage-orders`}>
               <ManageOrders></ManageOrders>
-            </Route>
-            <Route path={`${path}/make-admin`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/make-admin`}>
               <MakeAdmin></MakeAdmin>
-            </Route>
-            <Route path={`${path}/manage-users`}>
-              <ManageUsers></ManageUsers>
-            </Route>
-            <Route path={`${path}/add-product`}>
+            </AdminRoute>
+
+            <AdminRoute path={`${path}/add-product`}>
               <AddProduct></AddProduct>
-            </Route>
+            </AdminRoute>
             <Route path={`${path}/review`}>
               <Review></Review>
             </Route>
