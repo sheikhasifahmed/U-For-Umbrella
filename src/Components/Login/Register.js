@@ -77,9 +77,7 @@ const Register = () => {
     <div className="top-space">
       <div className="t-order" style={{ marginTop: "50px" }}>
         <div>
-          <h5 className="text-start">
-            Create an account with Email & password
-          </h5>
+          <h5 className="text-center">Register your Account</h5>
 
           <Form onSubmit={register} className="form-style   mx-auto">
             <Form.Group className="mb-3" controlId="formBasicName">

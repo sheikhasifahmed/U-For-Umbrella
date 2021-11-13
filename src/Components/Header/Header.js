@@ -7,7 +7,14 @@ import useFirebase from "../../Firebase/useFirebase";
 const Header = () => {
   const { user, logOut } = useFirebase();
 
-  const navact = { textDecoration: "none", color: "green", fontWeight: "700" };
+  const navact = {
+    borderBottom: "3px solid rgba(255, 255, 255, 0.39)",
+    // backgroundColor: "rgba(255, 255, 255, 0.39)",
+
+    textDecoration: "none",
+    color: "red",
+    fontWeight: "700",
+  };
   return (
     <div className="header">
       <nav className="row">
@@ -31,11 +38,14 @@ const Header = () => {
                 Dashboard
               </NavLink>
               <div className="d-flex align-items-center">
-                <div className="pe-2" style={{ fontSize: "large" }}>
+                <div
+                  className="pe-2"
+                  style={{ fontSize: "large", color: "white" }}
+                >
                   {user.displayName}
                 </div>
 
-                <Button variant="outline-light" onClick={logOut}>
+                <Button variant="danger" onClick={logOut}>
                   Logout
                 </Button>
               </div>

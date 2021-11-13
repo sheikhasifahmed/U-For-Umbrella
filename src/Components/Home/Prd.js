@@ -12,7 +12,7 @@ const Prd = () => {
         const short = data.slice(0, 6);
         setData(short);
       })
-      .catch((error) => alert("Ops! Something went wrong...!"));
+      .catch();
   }, []);
 
   return (

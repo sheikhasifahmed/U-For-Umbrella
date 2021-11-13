@@ -10,27 +10,29 @@ const Products = () => {
       .then((data) => {
         setData(data);
       })
-      .catch((error) => alert("Ops! Something went wrong...!"));
+      .catch();
   }, []);
 
   return (
-    <div className="prd-cont mx-5">
-      {data.length ? (
-        <div className="top-space">
-          <div className="grid">
-            {data.map((p) => (
-              <Product key={p._id} product={p}></Product>
-            ))}
+    <div className="top-space mx-5">
+      <div className="prd-cont">
+        {data.length ? (
+          <div className="">
+            <div className="grid">
+              {data.map((p) => (
+                <Product key={p._id} product={p}></Product>
+              ))}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="loader">
-          <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
+        ) : (
+          <div className="loader">
+            <div class="spinner-border" role="status">
+              <span class="sr-only"></span>
+            </div>
+            <h3>Please Wait...</h3>
           </div>
-          <h3>Please Wait...</h3>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

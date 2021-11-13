@@ -9,19 +9,19 @@
 
 .navstyle {
   text-decoration: none;
-  color: khaki;
+  color: white;
   font-size: medium;
   padding: 5px 15px;
 }
 
 .navstyle:hover {
-  background-color: rgba(245, 222, 179, 0.253);
+  background-color: rgba(0, 0, 0, 0.377);
   color: white;
   border-radius: 8px;
 }
 
 .header {
-  background-color: palevioletred;
+  background-color: rgba(128, 0, 128, 0.431);
   padding: 20px 20px;
 
   color: khaki;
@@ -30,7 +30,7 @@
 }
 
 .top-space {
-  padding-top: 70px;
+  padding-top: 75px;
 }
 
 .banner {
@@ -38,7 +38,7 @@
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 20px;
   background-color: rgba(216, 112, 147, 0.287);
-  padding-top: 80px;
+
   padding: 0 100px;
 }
 
@@ -88,7 +88,7 @@
   width: 50%;
   margin: 0 auto;
   padding: 30px;
-  background-color: rgba(216, 112, 147, 0.24);
+  background-color: white;
   border-radius: 8px;
 }
 
@@ -177,6 +177,30 @@ table tr:nth-child(2n) {
   margin: 30px;
 }
 
+.rev {
+  background-color: rgba(152, 251, 152, 0.452);
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.dash-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-nav {
+  margin: 20px 0;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px;
+  width: 100px;
+  border-radius: 8px;
+}
+
+.dash-nav:hover {
+  background-color: rgba(255, 255, 255, 0.356);
+}
+
 @media (max-width: 700px) {
   .banner {
     grid-template-columns: 1fr;
@@ -203,5 +227,10 @@ table tr:nth-child(2n) {
 
   .dash-grid {
     grid-template-columns: 1fr;
+  }
+  .dash-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

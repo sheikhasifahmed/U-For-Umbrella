@@ -34,65 +34,74 @@ const Dashboard = () => {
   return (
     <div className="top-space">
       <div className="dash-grid">
-        <div className="dash-side">
-          <ul>
-            <li>
-              <NavLink activeStyle={navact} exact to="/dashboard">
-                Dashboard
-              </NavLink>
-            </li>
-          </ul>
+        <div className="dash-side ps-5">
           {admin ? (
-            <ul>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/manage-products`}>
-                  Manage Products
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/manage-orders`}>
-                  Manage Orders
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/make-admin`}>
-                  Make Admin
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/add-product`}>
-                  Add New Product
-                </NavLink>
-              </li>
-            </ul>
-          ) : (
-            <ul>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/my-orders`}>
-                  My Orders
-                </NavLink>
-              </li>
+            <div className="dash-menu">
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/manage-products`}
+              >
+                Manage Products
+              </NavLink>
 
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/payment`}>
-                  Payment
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeStyle={navact} to={`${url}/review`}>
-                  Review Us
-                </NavLink>
-              </li>
-            </ul>
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/manage-orders`}
+              >
+                Manage Orders
+              </NavLink>
+
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/make-admin`}
+              >
+                Make Admin
+              </NavLink>
+
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/add-product`}
+              >
+                Add New Product
+              </NavLink>
+            </div>
+          ) : (
+            <div className="dash-menu">
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/my-orders`}
+              >
+                My Orders
+              </NavLink>
+
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/payment`}
+              >
+                Payment
+              </NavLink>
+
+              <NavLink
+                className="dash-nav"
+                activeStyle={navact}
+                to={`${url}/review`}
+              >
+                Review Us
+              </NavLink>
+            </div>
           )}
 
-          <ul>
-            <li>
-              <Button variant="outline-danger" onClick={logOut}>
-                Log Out
-              </Button>
-            </li>
-          </ul>
+          <div>
+            <Button variant="outline-danger" onClick={logOut}>
+              Log Out
+            </Button>
+          </div>
         </div>
         <div className="dash-big">
           <div className="dash-title">
