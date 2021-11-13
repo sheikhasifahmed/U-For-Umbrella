@@ -21,7 +21,7 @@ const Product = (props) => {
   return (
     <div className="single">
       <div className="me-auto">
-        <img src={image} alt="" />
+        <img className="img-fluid" src={image} alt="" />
       </div>
       <div className="ms-auto">
         <h3 className="mb-3">{productName}</h3>

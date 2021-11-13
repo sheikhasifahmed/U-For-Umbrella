@@ -169,9 +169,8 @@ table tr:nth-child(2n) {
 }
 
 .manage-products {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.445);
   margin: 30px;
@@ -205,7 +204,7 @@ table tr:nth-child(2n) {
   }
   .cont {
     margin: 10px 0px;
-    padding: 0px;
+    padding: 10px;
   }
   .grid {
     grid-template-columns: 1fr;
@@ -235,5 +234,21 @@ table tr:nth-child(2n) {
 
   .prd-cont {
     padding: 0;
+  }
+
+  .manage-products h3 {
+    font-size: medium;
+  }
+  .manage-products h5 {
+    font-size: small;
+  }
+
+  .manage-products {
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  .manage-products img {
+    width: 80px;
   }
 }

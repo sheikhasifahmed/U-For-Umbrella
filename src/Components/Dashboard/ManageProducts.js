@@ -35,7 +35,7 @@ const ManageProducts = () => {
               <img src={pd.image} width="100" alt="" />
             </div>
             <div>
-              <h3>{pd.productName}</h3>
+              <h5>{pd.productName}</h5>
             </div>
             <div>
               <h3>${pd.price}</h3>

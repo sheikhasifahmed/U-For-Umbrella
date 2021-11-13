@@ -35,6 +35,7 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
+          alert("Order shipped successfully..!");
           window.location.reload();
         }
       })
