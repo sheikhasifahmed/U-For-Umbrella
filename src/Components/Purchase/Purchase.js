@@ -31,7 +31,6 @@ const Purchase = () => {
       alert("Congrates! your order is successful..");
       history.push("/");
     });
-    console.log(data);
   };
 
   return (

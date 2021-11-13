@@ -34,15 +34,12 @@ const MyOrders = () => {
 
   return (
     <div>
-      <div
-        className="t-order w-100 table-responsive"
-        // style={{ overflow: "scroll" }}
-      >
+      <div className="t-order w-100 table-responsive">
         <h3 className="clr text-center">Your orders</h3>
         <table className="my-4 w-100 ">
           <thead>
             {/* <th>order No.</th> */}
-            <th>Order Id</th>
+
             <th>Customer Name</th>
             <th>Product Name</th>
             <th>Order Status</th>
@@ -52,12 +49,11 @@ const MyOrders = () => {
             {orders.map((p) => (
               <tr key={p._id}>
                 {/* <td>{orders.indexOf(b) + 1}</td> */}
-                <td>
-                  <small>{p._id}</small>
-                </td>
 
                 <td>{p.userName}</td>
-                <td>{p.productName}</td>
+                <td>
+                  <small>{p.productName}</small>
+                </td>
                 <td>{p.status}</td>
 
                 <td>

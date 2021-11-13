@@ -35,11 +35,7 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("order Shipped by Admin");
-          // window.location.reload()
-          const remaining = orders.filter((p) => p._id !== id);
-          const neworders = [...remaining, Shipped];
-          setOrders(neworders);
+          window.location.reload();
         }
       })
       .catch((error) => console.log(error));
@@ -55,26 +51,24 @@ const ManageOrders = () => {
         <table className="my-4 w-100 ">
           <thead>
             {/* <th>order No.</th> */}
-            <th>Order Id</th>
+
             <th>Customer Name</th>
             <th>Product Name</th>
             <th>Order Status</th>
             <th></th>
-            <th></th>
           </thead>
           <tbody>
             {orders.map((p) => (
-              <tr key={p._id}>
+              <tr key={p._}>
                 {/* <td>{orders.indexOf(b) + 1}</td> */}
-                <td>
-                  <small>{p._id}</small>
-                </td>
 
                 <td>{p.userName}</td>
-                <td>{p.productName}</td>
-                <td>{p.status}</td>
+                <small>{p.productName}</small>
+
                 <td>
-                  {p.status === "Shipped" || (
+                  {p.status === "Shipped" ? (
+                    p.status
+                  ) : (
                     <Button
                       onClick={() => handleShipped(p._id)}
                       variant="outline-success"
