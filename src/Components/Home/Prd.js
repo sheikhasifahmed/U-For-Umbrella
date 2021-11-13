@@ -16,12 +16,7 @@ const Prd = () => {
   }, []);
 
   return (
-    <div
-      className="cont"
-      style={{
-        padding: "20px 30px",
-      }}
-    >
+    <div className="cont">
       {data.length ? (
         <div>
           <h2 style={{ textAlign: "center" }} className="mb-5 clr">

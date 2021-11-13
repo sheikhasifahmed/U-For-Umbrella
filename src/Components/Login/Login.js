@@ -98,7 +98,7 @@ const Login = () => {
               />
             </Form.Group>
 
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between flex-wrap">
               <Button variant="primary" type="submit">
                 Submit
               </Button>

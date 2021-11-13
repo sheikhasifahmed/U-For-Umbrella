@@ -34,7 +34,7 @@ const Dashboard = () => {
   return (
     <div className="top-space">
       <div className="dash-grid">
-        <div className="dash-side ps-5">
+        <div className="dash-side">
           {admin ? (
             <div className="dash-menu">
               <NavLink
@@ -68,6 +68,11 @@ const Dashboard = () => {
               >
                 Add New Product
               </NavLink>
+              <div>
+                <Button variant="outline-danger" onClick={logOut}>
+                  Log Out
+                </Button>
+              </div>
             </div>
           ) : (
             <div className="dash-menu">
@@ -94,14 +99,13 @@ const Dashboard = () => {
               >
                 Review Us
               </NavLink>
+              <div>
+                <Button variant="outline-danger" onClick={logOut}>
+                  Log Out
+                </Button>
+              </div>
             </div>
           )}
-
-          <div>
-            <Button variant="outline-danger" onClick={logOut}>
-              Log Out
-            </Button>
-          </div>
         </div>
         <div className="dash-big">
           <div className="dash-title">

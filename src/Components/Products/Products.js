@@ -14,7 +14,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="top-space mx-5">
+    <div className="top-space">
       <div className="prd-cont">
         {data.length ? (
           <div className="">

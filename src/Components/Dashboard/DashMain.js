@@ -6,7 +6,7 @@ const DashMain = () => {
   return (
     <div className="d-flex justify-content-center">
       {/* <h3>hello</h3> */}
-      <div>
+      <div className="dash-pic">
         <img src={dashpic} alt="" />
       </div>
     </div>

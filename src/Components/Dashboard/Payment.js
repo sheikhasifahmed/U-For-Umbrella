@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Payment = () => {
   return (
-    <div>
+    <div className="dash-pic">
       <div className="d-flex justify-content-center">
         <img src={pic} alt="" />
       </div>

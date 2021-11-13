@@ -40,7 +40,7 @@ const Header = () => {
               <div className="d-flex align-items-center">
                 <div
                   className="pe-2"
-                  style={{ fontSize: "large", color: "white" }}
+                  style={{ fontSize: "large", color: "yellow" }}
                 >
                   {user.displayName}
                 </div>

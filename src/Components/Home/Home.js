@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
+import Coupon from "./Coupon";
 import Prd from "./Prd";
 import ShowReview from "./Review/ShowReview";
 
@@ -9,6 +10,7 @@ const Home = () => {
       <Banner></Banner>
       <Prd></Prd>
       <ShowReview></ShowReview>
+      <Coupon></Coupon>
     </div>
   );
 };
