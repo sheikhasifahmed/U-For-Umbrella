@@ -53,18 +53,20 @@ const MakeAdmin = () => {
         <table className="my-4 w-100 ">
           <thead>
             <th>Users Name</th>
-            <th>User Email</th>
+            <th>
+              <small>User Email</small>
+            </th>
             <th>User Role</th>
-            <th></th>
           </thead>
           <tbody>
             {users.map((user) => (
               <tr>
                 <td>{user.displayName}</td>
                 <td>{user.email}</td>
-                <td>{user.role || "Visitor"}</td>
                 <td>
-                  {user.role === "Admin" || (
+                  {user.role === "Admin" ? (
+                    user.role
+                  ) : (
                     <Button
                       onClick={() => handleAdmin(user.email)}
                       variant="outline-success"
