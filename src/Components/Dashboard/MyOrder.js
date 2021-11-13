@@ -7,7 +7,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const { user } = useFirebase();
 
-  const { email, displayName } = user;
+  const { email } = user;
   useEffect(() => {
     if (email) {
       fetch(`https://backend-umbrella-asif.herokuapp.com/my-orders/${email}`)
@@ -50,7 +50,7 @@ const MyOrders = () => {
           </thead>
           <tbody>
             {orders.map((p) => (
-              <tr>
+              <tr key={p._id}>
                 {/* <td>{orders.indexOf(b) + 1}</td> */}
                 <td>
                   <small>{p._id}</small>

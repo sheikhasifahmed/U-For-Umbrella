@@ -1,10 +1,10 @@
-# Seven Heaven Tours
+# U For Umbrella
 
 Live link of this site: https://u-for-umbrella.web.app/
 
 ## 1.About the Project
 
-This project is a demo online shop of umbrella. People can find and order their prefered umbrella.
+This project is a demo umbrella online shop. People can find and order their prefered umbrella.
 
 ### Routing and Private Routing
 

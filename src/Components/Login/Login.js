@@ -11,7 +11,7 @@ const Login = () => {
 
   const history = useHistory();
   const location = useLocation();
-  const redirect_uri = location.state?.from || "/home";
+  const redirect_uri = location.state?.from || "/dashboard";
 
   const emailRef = useRef();
   const passRef = useRef();

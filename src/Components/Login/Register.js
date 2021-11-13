@@ -8,12 +8,11 @@ import icon from "../../images/google.ico";
 import useFirebase from "../../Firebase/useFirebase";
 
 const Register = () => {
-  const { signWithGoogle, registerWithEmail, updateUserName, addNewUser } =
-    useFirebase();
+  const { signWithGoogle, registerWithEmail, updateUserName } = useFirebase();
 
   const history = useHistory();
   const location = useLocation();
-  const redirect_uri = location.state?.from || "/home";
+  const redirect_uri = location.state?.from || "/dashboard";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -57,13 +56,13 @@ const Register = () => {
 
   const register = (e) => {
     e.preventDefault();
-    saveUser(name, email);
+
     registerWithEmail(email, password)
       .then((userCredential) => {
         updateName();
-
-        history.push("/home");
-        window.location.reload();
+        saveUser(name, email);
+        history.push("/dashboard");
+        // window.location.reload();
       })
       .catch((error) => {
         console.log(error);

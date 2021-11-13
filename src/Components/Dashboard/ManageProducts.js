@@ -30,7 +30,7 @@ const ManageProducts = () => {
     <div>
       <div>
         {products.map((pd) => (
-          <div className="manage-products">
+          <div key={pd._id} className="manage-products">
             <div>
               <img src={pd.image} width="100" alt="" />
             </div>

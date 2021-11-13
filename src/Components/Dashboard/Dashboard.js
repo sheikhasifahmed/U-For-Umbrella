@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import ManageOrders from "./ManageOrders";
@@ -30,42 +30,58 @@ const Dashboard = () => {
       </div>
     );
   }
-
+  const navact = { textDecoration: "none", color: "red", fontWeight: "700" };
   return (
     <div className="top-space">
       <div className="dash-grid">
         <div className="dash-side">
           <ul>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <NavLink activeStyle={navact} exact to="/dashboard">
+                Dashboard
+              </NavLink>
             </li>
           </ul>
           {admin ? (
             <ul>
               <li>
-                <Link to={`${url}/manage-products`}>Manage Products</Link>
+                <NavLink activeStyle={navact} to={`${url}/manage-products`}>
+                  Manage Products
+                </NavLink>
               </li>
               <li>
-                <Link to={`${url}/manage-orders`}>Manage Orders</Link>
+                <NavLink activeStyle={navact} to={`${url}/manage-orders`}>
+                  Manage Orders
+                </NavLink>
               </li>
               <li>
-                <Link to={`${url}/make-admin`}>Make Admin</Link>
+                <NavLink activeStyle={navact} to={`${url}/make-admin`}>
+                  Make Admin
+                </NavLink>
               </li>
               <li>
-                <Link to={`${url}/add-product`}>Add New Product</Link>
+                <NavLink activeStyle={navact} to={`${url}/add-product`}>
+                  Add New Product
+                </NavLink>
               </li>
             </ul>
           ) : (
             <ul>
               <li>
-                <Link to={`${url}/my-orders`}>My Orders</Link>
+                <NavLink activeStyle={navact} to={`${url}/my-orders`}>
+                  My Orders
+                </NavLink>
               </li>
 
               <li>
-                <Link to={`${url}/payment`}>Payment</Link>
+                <NavLink activeStyle={navact} to={`${url}/payment`}>
+                  Payment
+                </NavLink>
               </li>
               <li>
-                <Link to={`${url}/review`}>Review Us</Link>
+                <NavLink activeStyle={navact} to={`${url}/review`}>
+                  Review Us
+                </NavLink>
               </li>
             </ul>
           )}

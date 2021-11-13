@@ -69,7 +69,8 @@ function useFirebase() {
         .then((data) => {
           if (data[0]?.role === "Admin") setAdmin(true);
           setIsAdminLoading(false);
-        });
+        })
+        .catch((error) => alert("Ops! Something went wrong..."));
     }
   }, [user.email]);
 

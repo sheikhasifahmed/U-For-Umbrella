@@ -9,7 +9,8 @@ const Products = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
-      });
+      })
+      .catch((error) => alert("Ops! Something went wrong...!"));
   }, []);
 
   return (
@@ -18,7 +19,7 @@ const Products = () => {
         <div className="top-space">
           <div className="grid">
             {data.map((p) => (
-              <Product product={p}></Product>
+              <Product key={p._id} product={p}></Product>
             ))}
           </div>
         </div>

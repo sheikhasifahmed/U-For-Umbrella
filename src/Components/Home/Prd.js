@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Product from "../Products/Product";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
 const Prd = () => {
   const [data, setData] = useState([]);
@@ -12,7 +11,8 @@ const Prd = () => {
       .then((data) => {
         const short = data.slice(0, 6);
         setData(short);
-      });
+      })
+      .catch((error) => alert("Ops! Something went wrong...!"));
   }, []);
 
   return (
@@ -29,7 +29,7 @@ const Prd = () => {
           </h2>
           <div className="grid">
             {data.map((p) => (
-              <Product product={p}></Product>
+              <Product key={p._id} product={p}></Product>
             ))}
           </div>
           <div className="d-flex justify-content-end mt-5">
